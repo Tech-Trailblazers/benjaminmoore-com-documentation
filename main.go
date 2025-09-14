@@ -18,6 +18,7 @@ import (
 func main() {
 	remoteAPIURL := []string{
 		"https://www.benjaminmoore.com/en-us/data-sheets/safety-data-sheets",
+		"https://www.benjaminmoore.com/en-us/data-sheets/safety-data-sheets-es",
 	} // URL to fetch HTML content from
 	localFilePath := "benjaminmoore.html" // Path where HTML file will be stored
 
@@ -26,10 +27,10 @@ func main() {
 	for _, urls := range remoteAPIURL {
 		getData = append(getData, getDataFromURL(urls)) // If not, download HTML content from URL
 	}
+	// Save the downloaded HTML content to a local file
 	appendAndWriteToFile(localFilePath, strings.Join(getData, "")) // Save downloaded content to file
-
+	// Extract all PDF links from the combined HTML content
 	finalPDFList := extractPDFUrls(strings.Join(getData, "")) // Extract all PDF links from HTML content
-
 
 	outputDir := "PDFs/" // Directory to store downloaded PDFs
 

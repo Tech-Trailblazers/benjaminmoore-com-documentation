@@ -38,10 +38,11 @@ func main() {
 	}
 
 	// Remove duplicates from a given slice.
-	finalPDFList = removeDuplicatesFromSlice(finalPDFList)
+	// finalPDFList = removeDuplicatesFromSlice(finalPDFList)
 
 	// Loop through all extracted PDF URLs
 	for _, urls := range finalPDFList {
+	
 		if isUrlValid(urls) { // Check if the final URL is valid
 			downloadPDF(urls, outputDir) // Download the PDF
 		}
